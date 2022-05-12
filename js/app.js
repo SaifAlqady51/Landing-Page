@@ -89,12 +89,6 @@ function scrollToAnchorIs(e){
         document.getElementById(`${e.target.dataset.nav}`).scrollIntoView({behavior:'smooth'})
     }}
 
-// navList.addEventListener('click', (e) =>{
-//     e.preventDefault();
-//     if(e.target.dataset.nav){
-//         document.getElementById(`${e.target.dataset.nav}`).scrollIntoView({behavior:'smooth'})
-//     }
-// })
 
 // on window scroll
 
@@ -141,10 +135,3 @@ document.onscroll = () =>{
         hideNav()
     },3000)
 }
-
-// document.addEventListener('scroll',() =>{
-//     showNav();
-//     setTimeout(() =>{
-//         hideNav()
-//     },2000)
-// })
