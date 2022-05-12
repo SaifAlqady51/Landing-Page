@@ -22,13 +22,19 @@ body {
 
 
 /* Typeography General*/
-li {
+/* li {
     color:#000;
     font-size: 1.3em;
-    padding:15px
+    padding:10px
     
+} */
+a {
+    display: block;
+    color:#000;
+    font-size: 1.5em;
+    padding: 15px; 
+    text-decoration: none;
 }
-
 
 h1 {
     font-family: 'Fira Sans', sans-serif;
@@ -82,6 +88,7 @@ section {
 
 .navbar__menu li {
     display: inline-block;
+
 }
 
 .navbar__menu .menu__link {
@@ -98,6 +105,7 @@ section {
     transition: ease 0.3s all;
 }
 
+
 /* Header Styles */
 .page__header {
     background: #fff;
@@ -106,6 +114,7 @@ section {
     width: 100%;
     z-index: 5;
 }
+
 
 /* Footer Styles */
 .page__footer {
@@ -233,8 +242,10 @@ section.your-active-class .landing__container::after {
 
 }
 
-.active, li:hover {
+a:hover {
     background-color: #222;
     color:white;
+
+
 
 }
