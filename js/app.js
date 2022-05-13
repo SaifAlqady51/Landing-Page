@@ -24,7 +24,7 @@
  * 
 */
 const navList = document.querySelector('#navbar__list');
-const sections = Array.from(document.querySelectorAll('section'));
+const sections = document.querySelectorAll('section');
 const bar = document.querySelector('.page__header');
 
 
@@ -46,52 +46,48 @@ const bar = document.querySelector('.page__header');
 
 // build the nav
 
-function createList() {
-    for(const section of sections){
-        const LI = document.createElement('li');
-        LI.innerHTML = `<a href="#${section.id}" data-nav="${section.id}">${section.dataset.nav}</a>`
 
-        navList.appendChild(LI)
-    }
-}
-createList()
+sections.forEach(function(section,i)  {
+    let LI = document.createElement('li');
+    let Link = document.createElement('a');
+    Link.setAttribute('href',`#${section.id}`);
+    Link.innerText = `Section ${i+1}`
+    LI.appendChild(Link);
+    navList.appendChild(LI);
+})
 
 
 
 
 // Add class 'active' to section when near top of viewport
 
-
-
-function addActiveClass(){
-    sections.forEach(function(active){
-        if(
-            active.getBoundingClientRect().top >= -400 &&
-            active.getBoundingClientRect().top <= 150
-            )
-        {
-            active.classList.add('your-active-class')
+window.addEventListener('scroll', () =>{
+    for(let i = 0; i < sections.length;i++){
+        let sec = sections[i];
+        if(sec.getBoundingClientRect().top >= -400 && sec.getBoundingClientRect().top < 150){
+            sec.classList.add('your-active-class');
+        }else{
+            sec.classList.remove('your-active-class');
         }
-        else{
-            active.classList.remove('your-active-class')
-        }
-    })
-}
-
+    }
+})
 
 
 // Scroll to anchor ID using scrollTO event
 
 
-function scrollToAnchorIs(e){
-    e.preventDefault();
-    if(e.target.dataset.nav){
-        document.getElementById(`${e.target.dataset.nav}`).scrollIntoView({behavior:'smooth'})
-    }}
+let scrollToAnchorID = () => {
+    let links = document.querySelectorAll('a')
+    let topValue = 600;
+    for(let j = 0 ;j < links.length;j++){
+        links[j].addEventListener('click',function(event){
+        event.preventDefault();
+        window.scrollTo({top:topValue + ((j*650)), behavior:'smooth'})
+        })
+    }
 
-
-// on window scroll
-
+}
+scrollToAnchorID();
 
 // Hide navbar functions
 function showNav(){
@@ -116,12 +112,10 @@ showNav()
 
 
 // Scroll to section on link click
-navList.addEventListener('click',(e) => {
-    scrollToAnchorIs(e)
-})
-// Set sections as active
 
-window.onscroll = () =>{addActiveClass()}
+
+
+// Set sections as active
 
 
 
