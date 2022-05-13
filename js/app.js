@@ -81,7 +81,7 @@ let scrollToAnchorID = () => {
     for(let j = 0 ;j < links.length;j++){
         links[j].addEventListener('click',function(event){
         event.preventDefault();
-        window.scrollTo({top:sections[j].offsetTop, behavior:'smooth'})
+        window.scrollTo({top:sections[j].offsetTop - 80, behavior:'smooth'})
         })
     }
 
