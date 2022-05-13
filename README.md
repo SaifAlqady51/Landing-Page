@@ -15,7 +15,7 @@ This is a basic landing page developed with css, html and javascript to create d
 - Hide the navbar during scrolling
 
 ## Folder Structure
-  
+
 ```
 ├── css
 │   └── styles.css
