@@ -78,11 +78,10 @@ window.addEventListener('scroll', () =>{
 
 let scrollToAnchorID = () => {
     let links = document.querySelectorAll('a')
-    let topValue = 600;
     for(let j = 0 ;j < links.length;j++){
         links[j].addEventListener('click',function(event){
         event.preventDefault();
-        window.scrollTo({top:topValue + ((j*650)), behavior:'smooth'})
+        window.scrollTo({top:sections[j].offsetTop, behavior:'smooth'})
         })
     }
 
