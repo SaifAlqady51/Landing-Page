@@ -28,13 +28,14 @@ body {
     padding:10px
     
 } */
-a {
+/* a {
     display: block;
     color:#000;
     font-size: 1.5em;
     padding: 15px; 
     text-decoration: none;
-}
+
+} */
 
 h1 {
     font-family: 'Fira Sans', sans-serif;
@@ -81,22 +82,32 @@ section {
 
 /* Navigation Styles*/
 .navbar__menu ul {
+    display: flex;
     padding-left: 0;
     margin: 0;
     text-align: right;
+    justify-content: flex-start;
 }
 
 .navbar__menu li {
+    list-style: none;
     display: inline-block;
 
 }
 
 .navbar__menu .menu__link {
     display: block;
+    font-size: 1.5em;
     padding: 1em;
     font-weight: bold;
     text-decoration: none;
     color: #000;
+    
+}
+.menu__link.active {
+    background-color: #333;
+    color: white;
+
 }
 
 .navbar__menu .menu__link:hover {
@@ -105,9 +116,78 @@ section {
     transition: ease 0.3s all;
 }
 
+.navbar__hero {
+    justify-content: flex-start;
+    font-size: 1.5em;
+    padding: 0.5em 0em 1.4em 0.5em ;
+
+    margin-bottom: .3rem;
+    font-weight: bold;
+    color: #000;
+    display: none;
+}
+
+.toggle {
+    position: absolute;
+    top: 0.75rem;
+    right:1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    top: 18px;
+
+}
+
+
+.toggle .dash {
+    height: 3px;
+    width: 100%;
+    background-color: black;
+    border-radius: 10px;
+}
+
+@media (max-width:600px) {
+    .toggle {
+        display: flex;
+
+    }
+
+    .navbar__menu{
+        display: none;
+    }
+    .page__header {
+        flex-direction: column;
+        align-items: flex-start;
+        
+    }
+    .navbar__hero {
+        display: flex;     
+        height: 2px;
+    }
+    .navbar__menu ul{
+        width: 100%;
+        flex-direction: column;
+    }
+    .navbar__menu li {
+        text-align: right;
+    }
+    .navbar__menu li a {
+        padding: .5rem 1rem;
+    }
+    .navbar__menu.active {
+        display: flex;
+    }
+
+    
+}
 
 /* Header Styles */
 .page__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: #fff;
     position: fixed;
     top: 0;
@@ -134,6 +214,8 @@ section {
     padding: 1em;
     text-align: left;
 }
+
+
 
 @media only screen and (min-width: 35em){
     .landing__container {
@@ -214,7 +296,7 @@ section:nth-of-type(3n + 1) .landing__container::after {
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
 section.your-active-class {
     background: rgb(0,0,0);
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 100%);
 }
 
 section.your-active-class .landing__container::before {
@@ -242,10 +324,3 @@ section.your-active-class .landing__container::after {
 
 }
 
-a:hover {
-    background-color: #222;
-    color:white;
-
-
-
-}
