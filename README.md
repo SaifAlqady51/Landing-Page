@@ -12,6 +12,8 @@ This is a basic landing page developed with css, html and javascript to create d
 - Store the sections in a variable
 - Link each element in the navbar with specifec section
 - Add active class to the section in the view point
+- Add active class to the clicked anchor tag
+- Add some styles to small screens
 - Hide the navbar during scrolling
 
 ## Folder Structure
